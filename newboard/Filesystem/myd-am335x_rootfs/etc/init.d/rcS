@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# insmod modules and select an appropriate pointercal file depends on the bootargs
+if grep "lcd7ic" /proc/cmdline > /dev/null; then
+	insmod /lib/modules/3.2.0/kernel/drivers/ft5x0x.ko
+	ln -sf /etc/pointercal_7.0c /etc/pointercal
+elif grep "hdmi" /proc/cmdline > /dev/null; then
+	insmod /lib/modules/3.2.0/kernel/drivers/tda998x.ko
+else
+	insmod /lib/modules/3.2.0/kernel/drivers/ti_tsc.ko
+fi
+
+if grep "lcd4i3" /proc/cmdline > /dev/null; then
+	ln -sf /etc/pointercal_4.3 /etc/pointercal
+elif grep "lcd7ir" /proc/cmdline > /dev/null; then
+	ln -sf /etc/pointercal_7.0r /etc/pointercal
+fi
+
+# Set the QT env
+if [ -e /etc/init.d/qt.sh ];then
+	. /etc/init.d/qt.sh
+fi
+
+export HOME=/root
+
+# Start all init scripts in /etc/init.d
+# executing them in numerical order.
+#
+for i in /etc/init.d/S??* ;do
+
+     # Ignore dangling symlinks (if any).
+     [ ! -f "$i" ] && continue
+
+     case "$i" in
+	*.sh)
+	    # Source shell script for speed.
+	    (
+		trap - INT QUIT TSTP
+		set start
+		. $i
+	    )
+	    ;;
+	*)
+	    # No sh extension, so fork subprocess.
+	    $i start
+	    ;;
+    esac
+done
+
