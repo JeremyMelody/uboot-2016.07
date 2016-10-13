@@ -233,14 +233,15 @@ main:
 	.ascii	"GNU C 4.7.3 20130226 (prerelease)\000"
 .LASF9:
 	.ascii	"long int\000"
-.LASF13:
-	.ascii	"/home/topeet/AM3352/Bootloader/u-boot\000"
 .LASF2:
 	.ascii	"short unsigned int\000"
 .LASF3:
 	.ascii	"signed char\000"
 .LASF4:
 	.ascii	"short int\000"
+.LASF13:
+	.ascii	"/home/topeet/AM3352/GitHub/newboard/Bootloader/u-bo"
+	.ascii	"ot\000"
 .LASF8:
 	.ascii	"sizetype\000"
 	.ident	"GCC: (crosstool-NG linaro-1.13.1-4.7-2013.03-20130313 - Linaro GCC 2013.03) 4.7.3 20130226 (prerelease)"

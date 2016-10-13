@@ -1,1 +1,1 @@
-ldscript dir is /home/topeet/AM3352/Bootloader/u-boot/arch/arm/cpu/armv7/omap-common/u-boot-spl.lds
+ldscript dir is /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/arch/arm/cpu/armv7/omap-common/u-boot-spl.lds

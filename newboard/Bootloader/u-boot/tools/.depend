@@ -1,15 +1,15 @@
 env_embedded.o: \
- /home/topeet/AM3352/Bootloader/u-boot/common/env_embedded.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/config.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/config_cmd_defaults.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/config_defaults.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/configs/myd_am335x.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/asm/arch/cpu.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/asm/arch/hardware.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/config_cmd_default.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/asm/config.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/environment.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/common/env_embedded.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config_cmd_defaults.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config_defaults.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/configs/myd_am335x.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/asm/arch/cpu.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/asm/arch/hardware.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config_cmd_default.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/asm/config.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/environment.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -44,10 +44,11 @@ env_embedded.o: \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
  /usr/include/search.h
-image.o: /home/topeet/AM3352/Bootloader/u-boot/common/image.c \
- /home/topeet/AM3352/Bootloader/u-boot/tools/mkimage.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/os_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+image.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/common/image.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/mkimage.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/os_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -85,20 +86,21 @@ image.o: /home/topeet/AM3352/Bootloader/u-boot/common/image.c \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/sha1.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/fdt_host.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/libfdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/libfdt_env.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/u-boot/md5.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/image.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/libfdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/fdt_support.h
-crc32.o: /home/topeet/AM3352/Bootloader/u-boot/lib/crc32.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/sha1.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/fdt_host.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/libfdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/libfdt_env.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/u-boot/md5.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/image.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/libfdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/fdt_support.h
+crc32.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/crc32.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -132,10 +134,10 @@ crc32.o: /home/topeet/AM3352/Bootloader/u-boot/lib/crc32.c \
  /usr/include/x86_64-linux-gnu/bits/mman.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/u-boot/crc.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/u-boot/zlib.h
-md5.o: /home/topeet/AM3352/Bootloader/u-boot/lib/md5.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/u-boot/crc.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/u-boot/zlib.h
+md5.o: /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/md5.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -169,8 +171,8 @@ md5.o: /home/topeet/AM3352/Bootloader/u-boot/lib/md5.c \
  /usr/include/x86_64-linux-gnu/bits/mman.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/u-boot/md5.h
-sha1.o: /home/topeet/AM3352/Bootloader/u-boot/lib/sha1.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/u-boot/md5.h
+sha1.o: /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/sha1.c \
  /usr/include/string.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -179,9 +181,10 @@ sha1.o: /home/topeet/AM3352/Bootloader/u-boot/lib/sha1.c \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/xlocale.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/watchdog.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/sha1.h
-envcrc.o: /home/topeet/AM3352/Bootloader/u-boot/tools/envcrc.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/watchdog.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/sha1.h
+envcrc.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/envcrc.c \
  /usr/include/errno.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -215,16 +218,16 @@ envcrc.o: /home/topeet/AM3352/Bootloader/u-boot/tools/envcrc.c \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/config.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/config_cmd_defaults.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/config_defaults.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/configs/myd_am335x.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/asm/arch/cpu.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/asm/arch/hardware.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/config_cmd_default.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/asm/config.h
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config_cmd_defaults.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config_defaults.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/configs/myd_am335x.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/asm/arch/cpu.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/asm/arch/hardware.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/config_cmd_default.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/asm/config.h
 gen_eth_addr.o: \
- /home/topeet/AM3352/Bootloader/u-boot/tools/gen_eth_addr.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/gen_eth_addr.c \
  /usr/include/stdio.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -253,9 +256,10 @@ gen_eth_addr.o: \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
  /usr/include/xlocale.h
-img2srec.o: /home/topeet/AM3352/Bootloader/u-boot/tools/img2srec.c \
- /home/topeet/AM3352/Bootloader/u-boot/tools/os_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+img2srec.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/img2srec.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/os_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -294,9 +298,10 @@ img2srec.o: /home/topeet/AM3352/Bootloader/u-boot/tools/img2srec.c \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h
-fdt.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/libfdt_env.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+fdt.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/fdt.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/libfdt_env.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -330,15 +335,16 @@ fdt.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt.c \
  /usr/include/x86_64-linux-gnu/bits/mman.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/fdt_host.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/libfdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
-fdt_ro.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt_ro.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/libfdt_env.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/fdt_host.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/libfdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
+fdt_ro.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/fdt_ro.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/libfdt_env.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -372,15 +378,16 @@ fdt_ro.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt_ro.c \
  /usr/include/x86_64-linux-gnu/bits/mman.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/fdt_host.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/libfdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
-fdt_rw.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt_rw.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/libfdt_env.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/fdt_host.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/libfdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
+fdt_rw.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/fdt_rw.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/libfdt_env.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -414,16 +421,16 @@ fdt_rw.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt_rw.c \
  /usr/include/x86_64-linux-gnu/bits/mman.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/fdt_host.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/libfdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/fdt_host.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/libfdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
 fdt_strerror.o: \
- /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt_strerror.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/libfdt_env.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/fdt_strerror.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/libfdt_env.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -457,15 +464,16 @@ fdt_strerror.o: \
  /usr/include/x86_64-linux-gnu/bits/mman.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/fdt_host.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/libfdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
-fdt_wip.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt_wip.c \
- /home/topeet/AM3352/Bootloader/u-boot/include/libfdt_env.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/compiler.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/fdt_host.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/libfdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
+fdt_wip.o: \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/fdt_wip.c \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/libfdt_env.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/compiler.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h \
  /usr/include/stdint.h /usr/include/features.h \
  /usr/include/x86_64-linux-gnu/bits/predefs.h \
@@ -499,9 +507,9 @@ fdt_wip.o: /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/fdt_wip.c \
  /usr/include/x86_64-linux-gnu/bits/mman.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/byteswap.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/fdt_host.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/libfdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/include/fdt.h \
- /home/topeet/AM3352/Bootloader/u-boot/tools/../include/fdt_support.h \
- /home/topeet/AM3352/Bootloader/u-boot/lib/libfdt/libfdt_internal.h
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/fdt_host.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/libfdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/include/fdt.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/tools/../include/fdt_support.h \
+ /home/topeet/AM3352/GitHub/newboard/Bootloader/u-boot/lib/libfdt/libfdt_internal.h

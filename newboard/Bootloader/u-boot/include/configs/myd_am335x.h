@@ -73,14 +73,16 @@
 	"console=ttyO0,115200n8\0" \
 	"mmc_dev=0\0" \
 	"mmc_root=/dev/ram rw \0" \
-	"nand_root=ubi0:rootfs rw ubi.mtd=7,2048\0" \
+	"nand_root=/dev/ram rw \0" \
 	"spi_root=/dev/mtdblock4 rw\0" \
 	"nor_root=/dev/mtdblock3 rw\0" \
 	"mmc_root_fs_type=ext2\0" \
-	"nand_root_fs_type=ubifs rootwait=1\0" \
+	"nand_root_fs_type=ext2\0" \
 	"spi_root_fs_type=jffs2\0" \
 	"nor_root_fs_type=jffs2\0" \
 	"nand_src_addr=0x280000\0" \
+	"nand_ramdisk_addr=0x780000\0" \
+	"nand_ramdisk_size=0xb20000\0" \
 	"spi_src_addr=0x62000\0" \
 	"nor_src_addr=0x08080000\0" \
 	"nand_img_siz=0x400000\0" \
@@ -108,7 +110,7 @@
 		"rootfstype=${mmc_root_fs_type} ip=${ip_method}\0" \
 	"nand_args=run bootargs_defaults;" \
 		"setenv bootargs ${bootargs} " \
-		"root=${nand_root} noinitrd " \
+		"root=${nand_root} initrd=${rdloadaddr},64MB " \
 		"rootfstype=${nand_root_fs_type} ip=${ip_method}\0" \
 	"spi_args=run bootargs_defaults;" \
 		"setenv bootargs ${bootargs} " \
@@ -130,6 +132,8 @@
 		"run nand_args; " \
 		"nandecc hw 2; " \
 		"nand read.i ${kloadaddr} ${nand_src_addr} ${nand_img_siz}; " \
+		"nandecc sw ; "\
+		"nand read.i ${rdloadaddr} ${nand_ramdisk_addr} ${nand_ramdisk_size};" \
 		"bootm ${kloadaddr}\0" \
 	"spi_boot=echo Booting from spi ...; " \
 		"run spi_args; " \
@@ -151,7 +155,7 @@
                 /*"fatload mmc 0 82000000 flash-uboot.img;nandecc hw 2;nand write.i 82000000 80000 ${filesize};"\*/\
 		"fatload mmc 0 82000000 u-boot.img;nandecc hw 2;nand write.i 82000000 80000 ${filesize}; "\
                 "fatload mmc 0 82000000 uImage;nandecc hw 2;nand write.i 82000000 280000 ${filesize}; "\
-                "fatload mmc 0 82000000 ubi.img;nandecc sw;nand write.i 82000000 780000 ${filesize};"\
+                "fatload mmc 0 82000000 ramdisk.gz;nandecc sw;nand write.i 82000000 780000 ${filesize};"\
                 "led flash all"
 
 #define CONFIG_BOOTCOMMAND \
