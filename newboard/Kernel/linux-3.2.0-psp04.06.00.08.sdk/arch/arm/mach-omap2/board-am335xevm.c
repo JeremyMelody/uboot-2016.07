@@ -1189,7 +1189,6 @@ static void myir_wdt_init(int evm_id, int profile)
 }
 #endif /* CONFIG_MYIR_WDT */
 
-
 static struct evm_dev_cfg myd_am335x_dev_cfg[] = {
 	{evm_nand_init, DEV_ON_BASEBOARD, PROFILE_ALL},
 	{mmc0_init,	DEV_ON_BASEBOARD, PROFILE_ALL},

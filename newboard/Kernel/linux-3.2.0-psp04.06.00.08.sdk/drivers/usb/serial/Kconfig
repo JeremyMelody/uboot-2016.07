@@ -260,6 +260,13 @@ config USB_SERIAL_IPW
 	  To compile this driver as a module, choose M here: the
 	  module will be called ipw.
 
+config USB_SERIAL_SIM7100C
+	tristate "USB SIM7100C (4G) Driver"
+	help
+	  Say Y here if you want to connect to SIM7100C 4G module.
+	  To compile this driver as a module, choose M here: the
+          module will be called GobiSerial.ko
+
 config USB_SERIAL_IUU
 	tristate "USB Infinity USB Unlimited Phoenix Driver"
 	help
