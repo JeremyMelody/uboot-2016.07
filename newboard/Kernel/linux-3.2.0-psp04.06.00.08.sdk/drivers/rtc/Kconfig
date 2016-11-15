@@ -125,6 +125,12 @@ comment "I2C RTC drivers"
 
 if I2C
 
+config RTC_DRV_PT7C4337
+	tristate "Pericom PT7C4337 RTC support"
+	depends on RTC_CLASS && I2C
+	help
+	  Pericom PT7C4337 RTC support
+
 config RTC_DRV_88PM860X
 	tristate "Marvell 88PM860x"
 	depends on RTC_CLASS && I2C && MFD_88PM860X

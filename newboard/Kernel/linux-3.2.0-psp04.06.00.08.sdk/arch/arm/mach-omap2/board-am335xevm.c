@@ -1163,10 +1163,11 @@ static void myir_gpio_init(int evm_id, int profile)
 #endif
 
 	/* export gpio for eeprom wp pin, gpio3_7 */
-	setup_pin_mux(gpio_e2pwp_mux);
-    gpio_request(GPIO_TO_PIN(3, 7), "e2pwp");
-    gpio_direction_output(GPIO_TO_PIN(3, 7), 1);
-    gpio_export(GPIO_TO_PIN(3, 7), 0); /* direction may not changed */
+/*modify by Jeremy Yu ,delete the pin for RTC-pt7c4437*/
+   //	setup_pin_mux(gpio_e2pwp_mux);
+   // gpio_request(GPIO_TO_PIN(3, 7), "e2pwp");
+   // gpio_direction_output(GPIO_TO_PIN(3, 7), 1);
+   // gpio_export(GPIO_TO_PIN(3, 7), 0); /* direction may not changed */
 }
 
 #ifdef	CONFIG_MYIR_WDT
