@@ -1269,14 +1269,18 @@ static struct regulator_consumer_supply tps65217_dcdc1_consumers[] = {
 /* 1.1V */
 static struct regulator_consumer_supply tps65217_dcdc2_consumers[] = {
 	{
-		.supply = "vdd_mpu",
+	/***modify by Jeremy****/
+	//	.supply = "vdd_mpu",
+		.supply = "vdd_core",
 	},
 };
 
 /* 1.1V */
 static struct regulator_consumer_supply tps65217_dcdc3_consumers[] = {
 	{
-		.supply = "vdd_core",
+	/***modify by Jeremy****/
+	//	.supply = "vdd_core",
+		.supply = "vdd_mpu",
 	},
 };
 
@@ -1352,7 +1356,8 @@ static struct regulator_init_data tps65217_regulator_data[] = {
 	{
 		.constraints = {
 			.min_uV = 900000,
-			.max_uV = 3300000,
+	/*********modify by Jeremy************/
+			.max_uV = 1500000,  //3300000,
 			.valid_ops_mask = (REGULATOR_CHANGE_VOLTAGE |
 							   REGULATOR_CHANGE_STATUS),
 			.boot_on = 1,
@@ -1366,7 +1371,8 @@ static struct regulator_init_data tps65217_regulator_data[] = {
 	{
 		.constraints = {
 			.min_uV = 900000,
-			.max_uV = 1500000,
+		/******modify by Jeremy****/
+			.max_uV = 3300000,  //1500000, 
 			.valid_ops_mask = (REGULATOR_CHANGE_VOLTAGE |
 							   REGULATOR_CHANGE_STATUS),
 			.boot_on = 1,
@@ -1448,6 +1454,12 @@ static struct at24_platform_data board_eeprom = {
 	.flags = AT24_FLAG_ADDR16,
 };
 
+static struct at24_platform_data board_rtc_pt7c4337 = {
+        .byte_len = 4096,
+        .page_size = 32,
+        .flags = AT24_FLAG_ADDR16,
+};
+
 static struct i2c_board_info __initdata am335x_i2c0_boardinfo[] = {
 	{
 		I2C_BOARD_INFO("tps65217", TPS65217_I2C_ID),
@@ -1464,6 +1476,10 @@ static struct i2c_board_info __initdata am335x_i2c0_boardinfo[] = {
 		I2C_BOARD_INFO("at24", 0x50),
 		.platform_data = &board_eeprom,
 	},
+/*****add by Jeremy   , for RTC pt7c4337 ********/
+	{
+                I2C_BOARD_INFO("PT7C4337", 0x68),
+        },
 };
 
 /* sc16is7x2 -- Add by JBO */
