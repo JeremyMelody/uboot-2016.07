@@ -49,6 +49,7 @@ void am33xx_d_can_init(unsigned int instance);
 struct myir_wdt_platdata {
     int default_period_ms;
     int gpio_pin;
+    int gpio_en_pin;//add by Jeremy
 };
 
 /* Structure for ft5x0x */

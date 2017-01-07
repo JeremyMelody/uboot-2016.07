@@ -565,12 +565,39 @@ static struct pinmux_config gpio_led_mux[] = {
 	    {"mcasp0_aclkr.gpio3_18",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
         {"spi0_d0.gpio0_3",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
         //{"gpmc_ad11.gpio0_27",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT},
+     /****add by Jeremy for led****/
+	{"mmc0_dat1.gpio2_28",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //led3_sim
+	{"mmc0_dat2.gpio2_27",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //led2_module
+	{"mmc0_dat3.gpio2_26",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //led4_status
 	{NULL, 0},
 };
+
+/* pinmux for control gpio ,add by Jeremy*/
+static struct pinmux_config gpio_ctl_mux[] = {
+        {"mmc0_cmd.gpio2_31",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio0
+        {"mmc0_clk.gpio2_30",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio1
+        {"mmc0_dat0.gpio2_29",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio2
+	{"gpmc_ad15.gpio1_15",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio3
+        {"gpmc_a3.gpio1_19",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio4
+        {"gpmc_a4.gpio1_20",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio5
+	{"gpmc_a5.gpio1_21",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio6
+        {"gpmc_a6.gpio1_22",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio7
+        {"gpmc_a7.gpio1_23",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio8
+	{"gpmc_a8.gpio1_24",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio9
+        {"gpmc_a9.gpio1_25",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio10
+        {"gpmc_a10.gpio1_26",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio11
+	{"gpmc_a11.gpio1_27",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio12
+        {"gpmc_a0.gpio1_16",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio13
+        {"gpmc_a1.gpio1_17",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio14
+	{"gpmc_a2.gpio1_18",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio15
+        {NULL, 0},
+};
+
 
 /* pinmux for watch dog timer input, MYIR */
 static struct pinmux_config gpio_wdi_mux[] = {
         {"emu1.gpio3_8",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+	{"emu0.gpio3_7",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},//add by Jeremy
         {NULL, 0},
 };
 
@@ -1160,10 +1187,89 @@ static void myir_gpio_init(int evm_id, int profile)
 #ifdef	CONFIG_MYIR_WDT
 	/* gpio3_8, already configured at MLO */
 	setup_pin_mux(gpio_wdi_mux);
-#endif
 
+#endif
+ /****add by Jeremy for leds*******/
+	setup_pin_mux(gpio_led_mux);
+
+	gpio_request(GPIO_TO_PIN(2, 28), "led3_sim");
+        gpio_direction_output(GPIO_TO_PIN(2, 28), 1);
+        gpio_export(GPIO_TO_PIN(2, 28), 0);
+
+	gpio_request(GPIO_TO_PIN(2, 27), "led2_module");
+        gpio_direction_output(GPIO_TO_PIN(2, 27), 1);
+        gpio_export(GPIO_TO_PIN(2, 27), 0);
+
+	gpio_request(GPIO_TO_PIN(2, 26), "led4_status");
+        gpio_direction_output(GPIO_TO_PIN(2, 26), 1);
+        gpio_export(GPIO_TO_PIN(2, 26), 0);
+ /****add by Jeremy for gpio control*******/
+	setup_pin_mux(gpio_ctl_mux);
+	gpio_request(GPIO_TO_PIN(2, 31), "gpio_0");
+        gpio_direction_output(GPIO_TO_PIN(2, 31), 1);
+        gpio_export(GPIO_TO_PIN(2, 31), 0);
+
+	gpio_request(GPIO_TO_PIN(2, 30), "gpio_1");
+        gpio_direction_output(GPIO_TO_PIN(2, 30), 1);
+        gpio_export(GPIO_TO_PIN(2, 30), 0);
+
+	gpio_request(GPIO_TO_PIN(2, 29), "gpio_2");
+        gpio_direction_output(GPIO_TO_PIN(2, 29), 1);
+        gpio_export(GPIO_TO_PIN(2, 29), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 15), "gpio_3");
+        gpio_direction_output(GPIO_TO_PIN(1, 15), 1);
+        gpio_export(GPIO_TO_PIN(1, 15), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 19), "gpio_4");
+        gpio_direction_output(GPIO_TO_PIN(1, 19), 1);
+        gpio_export(GPIO_TO_PIN(1, 19), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 20), "gpio_5");
+        gpio_direction_output(GPIO_TO_PIN(1, 20), 1);
+        gpio_export(GPIO_TO_PIN(1, 20), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 21), "gpio_6");
+        gpio_direction_output(GPIO_TO_PIN(1, 21), 1);
+        gpio_export(GPIO_TO_PIN(1, 21), 0);
+		
+	gpio_request(GPIO_TO_PIN(1, 22), "gpio_7");
+        gpio_direction_output(GPIO_TO_PIN(1, 22), 1);
+        gpio_export(GPIO_TO_PIN(1, 22), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 23), "gpio_8");
+        gpio_direction_output(GPIO_TO_PIN(1, 23), 1);
+        gpio_export(GPIO_TO_PIN(1, 23), 0);
+		
+	gpio_request(GPIO_TO_PIN(1, 24), "gpio_9");
+        gpio_direction_output(GPIO_TO_PIN(1, 24), 1);
+        gpio_export(GPIO_TO_PIN(1, 24), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 25), "gpio_10");
+        gpio_direction_output(GPIO_TO_PIN(1, 25), 1);
+        gpio_export(GPIO_TO_PIN(1, 25), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 26), "gpio_11");
+        gpio_direction_output(GPIO_TO_PIN(1, 26), 1);
+        gpio_export(GPIO_TO_PIN(1, 26), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 27), "gpio_12");
+        gpio_direction_output(GPIO_TO_PIN(1, 27), 1);
+        gpio_export(GPIO_TO_PIN(1, 27), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 16), "gpio_13");
+        gpio_direction_output(GPIO_TO_PIN(1, 16), 1);
+        gpio_export(GPIO_TO_PIN(1, 16), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 17), "gpio_14");
+        gpio_direction_output(GPIO_TO_PIN(1, 17), 1);
+        gpio_export(GPIO_TO_PIN(1, 17), 0);
+
+	gpio_request(GPIO_TO_PIN(1, 18), "gpio_15");
+        gpio_direction_output(GPIO_TO_PIN(1, 18), 1);
+        gpio_export(GPIO_TO_PIN(1, 18), 0);
 	/* export gpio for eeprom wp pin, gpio3_7 */
-/*modify by Jeremy Yu ,delete the pin for RTC-pt7c4437*/
+/*modify by Jeremy Yu ,delete the pin for watch dog enable (sp706s)*/
    //	setup_pin_mux(gpio_e2pwp_mux);
    // gpio_request(GPIO_TO_PIN(3, 7), "e2pwp");
    // gpio_direction_output(GPIO_TO_PIN(3, 7), 1);
@@ -1175,6 +1281,7 @@ static void myir_gpio_init(int evm_id, int profile)
 static struct myir_wdt_platdata myir_wdt_data = {
     .default_period_ms = 200,
     .gpio_pin = GPIO_TO_PIN(3, 8),
+    .gpio_en_pin = GPIO_TO_PIN(3, 7),//add by Jeremy
 };
 static struct platform_device myir_wdt_device = {
     .name = "myir-watchdog",
@@ -1192,9 +1299,9 @@ static void myir_wdt_init(int evm_id, int profile)
 
 static struct evm_dev_cfg myd_am335x_dev_cfg[] = {
 	{evm_nand_init, DEV_ON_BASEBOARD, PROFILE_ALL},
-	{mmc0_init,	DEV_ON_BASEBOARD, PROFILE_ALL},
+	//{mmc0_init,	DEV_ON_BASEBOARD, PROFILE_ALL}, //modified by Jeremy
 	{rgmii1_init,	DEV_ON_BASEBOARD, PROFILE_ALL},
-	{rgmii2_init,	DEV_ON_BASEBOARD, PROFILE_ALL},
+	//{rgmii2_init,	DEV_ON_BASEBOARD, PROFILE_ALL}, //modified by Jeremy
 	{display_init,     DEV_ON_BASEBOARD, PROFILE_ALL},
 	{enable_ehrpwm0,	DEV_ON_BASEBOARD, PROFILE_ALL},
 	//{tsc_init,	DEV_ON_BASEBOARD, PROFILE_ALL},
@@ -1209,7 +1316,7 @@ static struct evm_dev_cfg myd_am335x_dev_cfg[] = {
 	{uart5_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
 	{d_can_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
 	{gpio_keys_init,  DEV_ON_BASEBOARD, PROFILE_ALL},
-	{gpio_led_init,  DEV_ON_BASEBOARD, PROFILE_ALL},
+	//{gpio_led_init,  DEV_ON_BASEBOARD, PROFILE_ALL}, //modified by Jeremy
 
 	{myir_gpio_init, DEV_ON_BASEBOARD, PROFILE_ALL},
 #ifdef CONFIG_MYIR_WDT

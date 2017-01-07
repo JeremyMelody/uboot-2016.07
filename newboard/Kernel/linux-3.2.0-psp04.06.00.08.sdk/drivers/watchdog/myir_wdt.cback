@@ -17,15 +17,14 @@
 #define DEV_NAME		"myir-watchdog"
 #define RESET_MS		500 /* Default reset period set to 500 ms */
 #define DEFAULT_WDI		(32*3+8)// GPIO3_8
-#define DEFAULT_WDI_EN          (32*3+7)// gpio3_7 add by Jeremy
+
 struct watchdog_data {
 	struct class class;
 	struct timer_list timer;
 	int period;
+
 	int gpio;
-	int gpio_en;//add by Jeremy
 	unsigned char gpio_value;
-	unsigned char gpio_en_value;//add by Jeremy
 	unsigned char running;
 };
 
@@ -149,7 +148,6 @@ static struct class_attribute watchdog_class_attrs[] = {
 static int __devinit watchdog_probe(struct platform_device *pdev)
 {
 	int ret = 0;
-	int ret_en = 0;//add by Jeremy
 	struct watchdog_data * pdata;
 	struct myir_wdt_platdata * ppdata = (struct myir_wdt_platdata *)pdev->dev.platform_data;
 	
@@ -167,12 +165,10 @@ static int __devinit watchdog_probe(struct platform_device *pdev)
 		/* Init gpio */
 		printk(KERN_ALERT "watchdog gpio: %d\n", DEFAULT_WDI);
 		pdata->gpio = DEFAULT_WDI;
-		pdata->gpio_en = DEFAULT_WDI_EN;//add by Jeremy
+
 		ret = gpio_request(DEFAULT_WDI, DEV_NAME);
-		ret_en = gpio_request(DEFAULT_WDI, DEV_NAME);//add by Jeremy
-		ret = (ret >= 0 && ret_en >= 0)?1:-1;//modyfied by Jeremy
 		if(ret < 0) {
-			printk(KERN_ERR "request gpio %d or %d for %s failed!\n", DEFAULT_WDI,DEFAULT_WDI_EN, DEV_NAME);//modyfied by Jeremy
+			printk(KERN_ERR "request gpio %d for %s failed!\n", DEFAULT_WDI, DEV_NAME);
 			goto gpio_request_fail;
 		}
 	} else {
@@ -181,14 +177,11 @@ static int __devinit watchdog_probe(struct platform_device *pdev)
 		
 		/* Init gpio */
 		printk(KERN_ALERT "watchdog gpio: %d\n", ppdata->gpio_pin);
-		printk(KERN_ALERT "watchdog gpio_en: %d\n", ppdata->gpio_en_pin);//add by Jeremy
 		pdata->gpio = ppdata->gpio_pin;
-		pdata->gpio_en = ppdata->gpio_en_pin;//add by Jeremy
-		ret_en = gpio_request(ppdata->gpio_en_pin, DEV_NAME);//add by Jeremy
+
 		ret = gpio_request(ppdata->gpio_pin, DEV_NAME);
-		ret = (ret >= 0 && ret_en >= 0)?1:-1;//modyfied by Jeremy
 		if(ret < 0) {
-			printk(KERN_ERR "request gpio %d or %d for %s failed!\n", ppdata->gpio_pin,ppdata->gpio_en_pin, DEV_NAME);
+			printk(KERN_ERR "request gpio %d for %s failed!\n", ppdata->gpio_pin, DEV_NAME);
 			goto gpio_request_fail;
 		}
 	}
@@ -208,7 +201,7 @@ static int __devinit watchdog_probe(struct platform_device *pdev)
 	gpio_direction_output(pdata->gpio, pdata->gpio_value);
 	mod_timer(&pdata->timer, jiffies + msecs_to_jiffies(pdata->period));
 	pdata->running = 1;
-	gpio_direction_output(pdata->gpio_en, 0);//add by Jeremy ,enable the wdt	
+	
 	printk(KERN_ALERT "%s driver initialized successfully!\n", DEV_NAME);
 	return 0;
 
@@ -217,7 +210,6 @@ class_register_fail:
 	gpio_free(pdata->gpio);
 	
 gpio_request_fail:
-	gpio_direction_input(pdata->gpio_en);//add by Jeremy ,disable the wdt
 	kfree(pdata);
 	
 	return ret;
@@ -229,7 +221,6 @@ static int __devexit watchdog_remove(struct platform_device *pdev)
 	if(dev) {
 		destroy_timer(dev);
 		gpio_free(dev->gpio);
-		gpio_free(dev->gpio_en);//add by Jeremy
 		class_unregister(&dev->class);
 		kfree(dev);
 	}
