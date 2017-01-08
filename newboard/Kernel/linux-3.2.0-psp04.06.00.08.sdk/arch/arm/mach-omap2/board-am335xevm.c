@@ -1572,7 +1572,7 @@ static struct i2c_board_info __initdata am335x_i2c0_boardinfo[] = {
 		I2C_BOARD_INFO("tps65217", TPS65217_I2C_ID),
 		.platform_data  = &myir_tps65217_info,
 	},
-	{
+/*	{
 		I2C_BOARD_INFO("sgtl5000", 0x0A),
 	},
 	{
@@ -1582,7 +1582,7 @@ static struct i2c_board_info __initdata am335x_i2c0_boardinfo[] = {
 	{
 		I2C_BOARD_INFO("at24", 0x50),
 		.platform_data = &board_eeprom,
-	},
+	},*/  //modified by Jeremy
 /*****add by Jeremy   , for RTC pt7c4337 ********/
 	{
                 I2C_BOARD_INFO("PT7C4337", 0x68),
@@ -1621,11 +1621,11 @@ static void __init am335x_evm_i2c_init(void)
 	setup_pin_mux(i2c0_pin_mux);
 	omap_register_i2c_bus(1, 100, am335x_i2c0_boardinfo,
 				ARRAY_SIZE(am335x_i2c0_boardinfo));
-
+/*
 	setup_pin_mux(sc16is7x2_pin_mux);
 	setup_pin_mux(i2c1_pin_mux);
 	omap_register_i2c_bus(2, 100, am335x_i2c1_boardinfo,
-							  ARRAY_SIZE(am335x_i2c1_boardinfo));
+							  ARRAY_SIZE(am335x_i2c1_boardinfo));*/  // modified by Jeremy
 
 }
 
@@ -1793,10 +1793,10 @@ static void __init am335x_evm_init(void)
 	am33xx_cpuidle_init();
 	am33xx_mux_init(board_mux);
 	omap_serial_init();
-	am335x_rtc_init();
+//	am335x_rtc_init(); //modified by Jeremy
 	/* conflicts with cap ts int pin on myd-am335x-j, MYIR
     clkout2_enable(); */
-	am335x_evm_i2c_init();
+	am335x_evm_i2c_init();  
 	am335x_evm_setup();
 	omap_sdrc_init(NULL, NULL);
 	usb_musb_init(&musb_board_data);
