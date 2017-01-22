@@ -78,7 +78,7 @@
 #define GPIO_TO_PIN(bank, gpio) (32 * (bank) + (gpio))
 
 /* AM335X EVM Phy ID and Debug Registers */
-#define AM335X_EVM_PHY_ID		0x4dd072
+#define AM335X_EVM_PHY_ID		0x4dd074   //0x4dd072    //modified by Jeremy
 #define AM335X_EVM_PHY_MASK		0xfffffffe
 #define AR8051_PHY_DEBUG_ADDR_REG	0x1d
 #define AR8051_PHY_DEBUG_DATA_REG	0x1e
@@ -555,8 +555,16 @@ static struct pinmux_config mmc0_cd_only_pin_mux[] = {
 
 /* pinmux for gpio based key */
 static struct pinmux_config gpio_keys_pin_mux[] = {
-	{"gpmc_ad8.gpio0_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
-	{"gpmc_ad9.gpio0_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},
+//	{"gpmc_ad8.gpio0_22", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT},//modifie by Jeremy
+//	{"gpmc_ad9.gpio0_23", OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //1PPS
+	{"gpmc_a7.gpio1_23",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //button_gpio8
+	{"gpmc_a8.gpio1_24",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //gpio9_3grst
+        {"gpmc_a9.gpio1_25",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //gpio10_3gpwr
+        {"gpmc_a10.gpio1_26",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //gpio11_bd_pwron
+	{"gpmc_a11.gpio1_27",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //gpio12_bd_rst
+        {"gpmc_a0.gpio1_16",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //button_gpio13
+        {"gpmc_a1.gpio1_17",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //button_gpio14
+	{"gpmc_a2.gpio1_18",  OMAP_MUX_MODE7 | AM33XX_PIN_INPUT}, //button_gpio15
 	{NULL, 0},
 };
 
@@ -569,27 +577,34 @@ static struct pinmux_config gpio_led_mux[] = {
 	{"mmc0_dat1.gpio2_28",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //led3_sim
 	{"mmc0_dat2.gpio2_27",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //led2_module
 	{"mmc0_dat3.gpio2_26",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //led4_status
+	{"mmc0_cmd.gpio2_31",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //warn_gpio0
+        {"mmc0_clk.gpio2_30",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //err_gpio1
+        {"mmc0_dat0.gpio2_29",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //wx_sing_gpio2
+	{"gpmc_ad15.gpio1_15",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //bd_sing_gpio3
+        {"gpmc_a3.gpio1_19",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //online_gpio4
+        {"gpmc_a4.gpio1_20",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //act2_gpio5
+        {"gpmc_a5.gpio1_21",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //act1_gpio6
 	{NULL, 0},
 };
 
 /* pinmux for control gpio ,add by Jeremy*/
 static struct pinmux_config gpio_ctl_mux[] = {
-        {"mmc0_cmd.gpio2_31",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio0
-        {"mmc0_clk.gpio2_30",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio1
-        {"mmc0_dat0.gpio2_29",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio2
-	{"gpmc_ad15.gpio1_15",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio3
-        {"gpmc_a3.gpio1_19",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio4
-        {"gpmc_a4.gpio1_20",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio5
-	{"gpmc_a5.gpio1_21",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio6
+//        {"mmc0_cmd.gpio2_31",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio0
+//        {"mmc0_clk.gpio2_30",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio1
+//        {"mmc0_dat0.gpio2_29",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio2
+//	{"gpmc_ad15.gpio1_15",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio3
+//        {"gpmc_a3.gpio1_19",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio4
+//        {"gpmc_a4.gpio1_20",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio5
+//	{"gpmc_a5.gpio1_21",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio6
         {"gpmc_a6.gpio1_22",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio7
-        {"gpmc_a7.gpio1_23",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio8
-	{"gpmc_a8.gpio1_24",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio9
-        {"gpmc_a9.gpio1_25",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio10
-        {"gpmc_a10.gpio1_26",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio11
-	{"gpmc_a11.gpio1_27",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio12
-        {"gpmc_a0.gpio1_16",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio13
-        {"gpmc_a1.gpio1_17",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio14
-	{"gpmc_a2.gpio1_18",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio15
+//        {"gpmc_a7.gpio1_23",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio8
+//	{"gpmc_a8.gpio1_24",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio9
+//        {"gpmc_a9.gpio1_25",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio10
+//        {"gpmc_a10.gpio1_26",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio11
+//	{"gpmc_a11.gpio1_27",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio12
+//        {"gpmc_a0.gpio1_16",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio13
+//        {"gpmc_a1.gpio1_17",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio14
+//	{"gpmc_a2.gpio1_18",  OMAP_MUX_MODE7 | AM33XX_PIN_OUTPUT}, //gpio15
         {NULL, 0},
 };
 
@@ -1100,7 +1115,7 @@ static void mmc0_init(int evm_id, int profile)
 
 /* Configure GPIOs for GPIO Keys */
 static struct gpio_keys_button gpio_buttons[] = {
-        {
+/*        {
                 .code                   = KEY_MENU,
                 .gpio                   = GPIO_TO_PIN(0, 22),
                 .active_low             = true,
@@ -1108,6 +1123,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .type                   = EV_KEY,
                 .wakeup                 = 1,
         },
+                   //for 1pps, Jeremy
         {
                 .code                   = KEY_BACK,
                 .gpio                   = GPIO_TO_PIN(0, 23),
@@ -1115,7 +1131,73 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .desc                   = "back",
                 .type                   = EV_KEY,
                 .wakeup                 = 1,
+        },*/
+/******add by Jeremy fro buttom****/
+	{
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 23),
+                .active_low             = true,
+                .desc                   = "button_gpio8",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
         },
+	{
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 24),
+                .active_low             = true,
+                .desc                   = "gpio9_3grst",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
+        },
+	{
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 25),
+                .active_low             = true,
+                .desc                   = "gpio10_3gpwr",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
+        },
+	{
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 26),
+                .active_low             = true,
+                .desc                   = "bd_pwron",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
+        },
+	{
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 27),
+                .active_low             = true,
+                .desc                   = "bd_rst",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
+        },
+        {
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 16),
+                .active_low             = true,
+                .desc                   = "button_gpio13",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
+        },
+	{
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 17),
+                .active_low             = true,
+                .desc                   = "button_gpio14",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
+        },
+        {
+                .code                   = KEY_BACK,
+                .gpio                   = GPIO_TO_PIN(1, 18),
+                .active_low             = true,
+                .desc                   = "button_gpio15",
+                .type                   = EV_KEY,
+                .wakeup                 = 1,
+        },
+
 };
 
 static struct gpio_keys_platform_data am335x_evm_gpio_key_info = {
@@ -1149,7 +1231,38 @@ static struct gpio_led gpio_leds[] = {
         },{
                 .name                   = "user_led0",
                 .gpio                   = GPIO_TO_PIN(0, 3),
-        },/*{
+        },{
+                .name                   = "led3_sim",
+                .gpio                   = GPIO_TO_PIN(2, 28),
+        },{
+                .name                   = "led2_module",
+                .gpio                   = GPIO_TO_PIN(2, 27),
+        },{
+                .name                   = "led4_status",
+                .gpio                   = GPIO_TO_PIN(2, 26),
+        },{
+                .name                   = "warn",
+                .gpio                   = GPIO_TO_PIN(2, 31),
+        },{
+                .name                   = "err",
+                .gpio                   = GPIO_TO_PIN(2, 30),
+        },{
+                .name                   = "wx_sing",
+                .gpio                   = GPIO_TO_PIN(2, 29),
+        },{
+                .name                   = "bd_sing",
+                .gpio                   = GPIO_TO_PIN(1, 15),
+        },{
+                .name                   = "online",
+                .gpio                   = GPIO_TO_PIN(1, 19),
+        },{
+                .name                   = "act2",
+                .gpio                   = GPIO_TO_PIN(1, 20),
+        },{
+                .name                   = "act1",
+                .gpio                   = GPIO_TO_PIN(1, 21),
+        },
+/*{
 			    .name                   = "user_led1",
 			    .gpio                   = GPIO_TO_PIN(0, 27),
 		},*/
@@ -1190,7 +1303,7 @@ static void myir_gpio_init(int evm_id, int profile)
 
 #endif
  /****add by Jeremy for leds*******/
-	setup_pin_mux(gpio_led_mux);
+/*	setup_pin_mux(gpio_led_mux);
 
 	gpio_request(GPIO_TO_PIN(2, 28), "led3_sim");
         gpio_direction_output(GPIO_TO_PIN(2, 28), 1);
@@ -1202,10 +1315,10 @@ static void myir_gpio_init(int evm_id, int profile)
 
 	gpio_request(GPIO_TO_PIN(2, 26), "led4_status");
         gpio_direction_output(GPIO_TO_PIN(2, 26), 1);
-        gpio_export(GPIO_TO_PIN(2, 26), 0);
+        gpio_export(GPIO_TO_PIN(2, 26), 0);  */
  /****add by Jeremy for gpio control*******/
 	setup_pin_mux(gpio_ctl_mux);
-	gpio_request(GPIO_TO_PIN(2, 31), "gpio_0");
+/*	gpio_request(GPIO_TO_PIN(2, 31), "gpio_0");
         gpio_direction_output(GPIO_TO_PIN(2, 31), 1);
         gpio_export(GPIO_TO_PIN(2, 31), 0);
 
@@ -1232,11 +1345,11 @@ static void myir_gpio_init(int evm_id, int profile)
 	gpio_request(GPIO_TO_PIN(1, 21), "gpio_6");
         gpio_direction_output(GPIO_TO_PIN(1, 21), 1);
         gpio_export(GPIO_TO_PIN(1, 21), 0);
-		
+	*/	
 	gpio_request(GPIO_TO_PIN(1, 22), "gpio_7");
         gpio_direction_output(GPIO_TO_PIN(1, 22), 1);
         gpio_export(GPIO_TO_PIN(1, 22), 0);
-
+/*
 	gpio_request(GPIO_TO_PIN(1, 23), "gpio_8");
         gpio_direction_output(GPIO_TO_PIN(1, 23), 1);
         gpio_export(GPIO_TO_PIN(1, 23), 0);
@@ -1267,7 +1380,7 @@ static void myir_gpio_init(int evm_id, int profile)
 
 	gpio_request(GPIO_TO_PIN(1, 18), "gpio_15");
         gpio_direction_output(GPIO_TO_PIN(1, 18), 1);
-        gpio_export(GPIO_TO_PIN(1, 18), 0);
+        gpio_export(GPIO_TO_PIN(1, 18), 0);*/
 	/* export gpio for eeprom wp pin, gpio3_7 */
 /*modify by Jeremy Yu ,delete the pin for watch dog enable (sp706s)*/
    //	setup_pin_mux(gpio_e2pwp_mux);
@@ -1299,7 +1412,7 @@ static void myir_wdt_init(int evm_id, int profile)
 
 static struct evm_dev_cfg myd_am335x_dev_cfg[] = {
 	{evm_nand_init, DEV_ON_BASEBOARD, PROFILE_ALL},
-	//{mmc0_init,	DEV_ON_BASEBOARD, PROFILE_ALL}, //modified by Jeremy
+//	{mmc0_init,	DEV_ON_BASEBOARD, PROFILE_ALL}, //modified by Jeremy
 	{rgmii1_init,	DEV_ON_BASEBOARD, PROFILE_ALL},
 	//{rgmii2_init,	DEV_ON_BASEBOARD, PROFILE_ALL}, //modified by Jeremy
 	{display_init,     DEV_ON_BASEBOARD, PROFILE_ALL},
@@ -1313,10 +1426,10 @@ static struct evm_dev_cfg myd_am335x_dev_cfg[] = {
 	{uart2_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
 	{uart3_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
 	{uart4_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
-	{uart5_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
+//	{uart5_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
 	{d_can_init,    DEV_ON_BASEBOARD, PROFILE_ALL},
 	{gpio_keys_init,  DEV_ON_BASEBOARD, PROFILE_ALL},
-	//{gpio_led_init,  DEV_ON_BASEBOARD, PROFILE_ALL}, //modified by Jeremy
+	{gpio_led_init,  DEV_ON_BASEBOARD, PROFILE_ALL}, 
 
 	{myir_gpio_init, DEV_ON_BASEBOARD, PROFILE_ALL},
 #ifdef CONFIG_MYIR_WDT
@@ -1343,8 +1456,9 @@ static void setup_myd_am335x(void)
 	am335x_mmc[0].gpio_wp = -EINVAL;
 
 	_configure_device(EVM_SK, myd_am335x_dev_cfg, PROFILE_NONE);
-
-	am33xx_cpsw_init(AM33XX_CPSW_MODE_RGMII, "0:04", "0:06");
+    /********************modified by Jeremy******/
+//	am33xx_cpsw_init(AM33XX_CPSW_MODE_RGMII, "0:04", "0:06");
+	am33xx_cpsw_init(AM33XX_CPSW_MODE_RGMII, "0:00", "0:02");//add by Jeremy
 	/* Atheros Tx Clk delay Phy fixup */
 	phy_register_fixup_for_uid(AM335X_EVM_PHY_ID, AM335X_EVM_PHY_MASK,
 				   am33xx_evm_tx_clk_dly_phy_fixup);
@@ -1636,7 +1750,8 @@ static struct omap_musb_board_data musb_board_data = {
 	 * mode[4:7] = USB1PORT's mode
 	 * AM335X beta EVM has USB0 in OTG mode and USB1 in host mode.
 	 */
-	.mode           = (MUSB_HOST << 4) | MUSB_OTG,
+//	.mode           = (MUSB_HOST << 4) | MUSB_OTG,
+	.mode           = (MUSB_OTG << 4) | MUSB_HOST,
 	.power		= 500,
 	.instances	= 1,
 };
@@ -1834,5 +1949,4 @@ MACHINE_START(AM335XIAEVM, "am335xiaevm")
 	.init_irq	= ti81xx_init_irq,
 	.init_early	= am33xx_init_early,
 	.timer		= &omap3_am33xx_timer,
-	.init_machine	= am335x_evm_init,
 MACHINE_END
