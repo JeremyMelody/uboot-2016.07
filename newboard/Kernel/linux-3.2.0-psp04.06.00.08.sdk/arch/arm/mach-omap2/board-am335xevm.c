@@ -1142,7 +1142,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .wakeup                 = 1,
         },
 	{
-                .code                   = KEY_BACK,
+                .code                   = KEY_FORWARD,
                 .gpio                   = GPIO_TO_PIN(1, 24),
                 .active_low             = true,
                 .desc                   = "gpio9_3grst",
@@ -1150,7 +1150,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .wakeup                 = 1,
         },
 	{
-                .code                   = KEY_BACK,
+                .code                   = KEY_CLOSECD,
                 .gpio                   = GPIO_TO_PIN(1, 25),
                 .active_low             = true,
                 .desc                   = "gpio10_3gpwr",
@@ -1158,7 +1158,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .wakeup                 = 1,
         },
 	{
-                .code                   = KEY_BACK,
+                .code                   = KEY_EJECTCD,
                 .gpio                   = GPIO_TO_PIN(1, 26),
                 .active_low             = true,
                 .desc                   = "bd_pwron",
@@ -1166,7 +1166,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .wakeup                 = 1,
         },
 	{
-                .code                   = KEY_BACK,
+                .code                   = KEY_EJECTCLOSECD,
                 .gpio                   = GPIO_TO_PIN(1, 27),
                 .active_low             = true,
                 .desc                   = "bd_rst",
@@ -1174,7 +1174,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .wakeup                 = 1,
         },
         {
-                .code                   = KEY_BACK,
+                .code                   = KEY_NEXTSONG,
                 .gpio                   = GPIO_TO_PIN(1, 16),
                 .active_low             = true,
                 .desc                   = "button_gpio13",
@@ -1182,7 +1182,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .wakeup                 = 1,
         },
 	{
-                .code                   = KEY_BACK,
+                .code                   = KEY_PLAYPAUSE,
                 .gpio                   = GPIO_TO_PIN(1, 17),
                 .active_low             = true,
                 .desc                   = "button_gpio14",
@@ -1190,7 +1190,7 @@ static struct gpio_keys_button gpio_buttons[] = {
                 .wakeup                 = 1,
         },
         {
-                .code                   = KEY_BACK,
+                .code                   = KEY_PREVIOUSSONG,
                 .gpio                   = GPIO_TO_PIN(1, 18),
                 .active_low             = true,
                 .desc                   = "button_gpio15",
@@ -1750,8 +1750,8 @@ static struct omap_musb_board_data musb_board_data = {
 	 * mode[4:7] = USB1PORT's mode
 	 * AM335X beta EVM has USB0 in OTG mode and USB1 in host mode.
 	 */
-//	.mode           = (MUSB_HOST << 4) | MUSB_OTG,
-	.mode           = (MUSB_OTG << 4) | MUSB_HOST,
+	.mode           = (MUSB_HOST << 4) | MUSB_OTG,
+//	.mode           = (MUSB_OTG << 4) | MUSB_HOST,
 	.power		= 500,
 	.instances	= 1,
 };
